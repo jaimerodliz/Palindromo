@@ -1,0 +1,37 @@
+<form [formGroup]="form" (ngSubmit)="cacular_palindromo()">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="col-md-12">
+                <p>Captura el rango de números</p>
+            </div>
+            <div class="form-group">
+              <label for="lim_inferior"><i class="fas fa-sort-numeric-down-alt"></i> Límite inferior</label>
+              <input type="number" class="form-control" id="lim_inferior" formControlName="lim_inferior" placeholder="Número 1">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="lim_superior"><i class="fas fa-sort-numeric-up-alt"></i> Límite superior</label>
+                <input type="number" class="form-control" id="lim_superior" formControlName="lim_superior" placeholder="Número 2">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success btn-lg btn-block" [disabled]="form.invalid"> <i class="fas fa-calculator"></i> Calcular</button>
+        </div>
+        <div class="col-md-1"></div>
+
+        <div class="col-md-8" *ngIf="palindromos.length > 0" >
+            <table class='table table-bordered' >
+                <thead>
+                    <tr>
+                        <th>Números primos palíndromos</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_resultado">
+                    <tr>
+                        <td><b>{{ cadena_pali }} </b></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </form>
